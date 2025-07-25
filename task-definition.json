@@ -4,11 +4,11 @@
   "cpu": "256",
   "memory": "512",
   "requiresCompatibilities": ["FARGATE"],
-  "executionRoleArn": "arn:aws:iam::<your-account-id>:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::634332497956:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
       "name": "greenroute",
-      "image": "<aws_account_id>.dkr.ecr.eu-west-1.amazonaws.com/greenroute:latest",
+      "image": "634332497956.dkr.ecr.eu-west-1.amazonaws.com/greenroute:latest",
       "portMappings": [
         {
           "containerPort": 5000,
