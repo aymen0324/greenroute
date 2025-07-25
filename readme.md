@@ -78,11 +78,96 @@ node >= 18.0.0
 npm >= 8.0.0
 python >= 3.9
 docker >= 20.0.0
+kubectl >= 1.28
+terraform >= 1.0
+aws-cli >= 2.0
+helm >= 3.0
 ```
 
-### Instalación
+### Instalación Rápida
 ```bash
 # Clonar repositorio
+git clone https://github.com/yourusername/greenroute.git
+cd greenroute
+
+# Instalar dependencias
+npm install
+pip install -r requirements.txt
+
+# Iniciar servidor de desarrollo
+npm run dev
+
+# Para despliegue en producción
+./deploy-advanced.sh  # Linux/Mac
+deploy-advanced.bat   # Windows
+```
+
+### Configuración de Desarrollo
+```bash
+# Frontend
+cd greenroute-ui
+npm install && npm run dev
+
+# Backend
+python app.py
+
+# Tests y Linting
+npm test && npm run lint
+
+# Build para producción
+npm run build
+```
+
+### Despliegue con Docker
+```bash
+# Construir todos los servicios
+docker-compose build
+
+# Iniciar servicios
+docker-compose up -d
+
+# Ver logs
+docker-compose logs -f
+
+# Parar servicios
+docker-compose down
+```
+
+### Despliegue en Kubernetes
+```bash
+# Desplegar en Kubernetes
+kubectl apply -f k8s-deployment.yaml
+
+# Verificar estado
+kubectl get pods -n greenroute
+
+# Acceder a aplicaciones
+kubectl port-forward svc/greenroute-frontend-service 3000:80 -n greenroute
+```
+
+### Infrastructure as Code (Terraform)
+```bash
+# Inicializar Terraform
+cd infrastructure
+terraform init
+
+# Planificar despliegue
+terraform plan
+
+# Desplegar infraestructura
+terraform apply
+
+# Destruir infraestructura
+terraform destroy
+```
+
+### CI/CD con GitHub Actions
+El proyecto incluye pipeline automatizado con:
+- ✅ Tests automáticos
+- 🔒 Escaneo de seguridad
+- ⚡ Tests de rendimiento con Lighthouse
+- 🚀 Despliegue automático a AWS ECS
+- 📊 Monitoreo con Prometheus/Grafana
 git clone https://github.com/aymen0324/greenroute.git
 cd greenroute
 
