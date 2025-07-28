@@ -239,15 +239,60 @@ export default function RouteCalculator() {
             </h3>
             
             {/* Advanced Map Placeholder */}
-            <div className="relative bg-gradient-to-br from-gray-900 to-blue-900 rounded-xl p-6 h-96 overflow-hidden">
-              {/* Satellite Background Effect */}
+            <div className={`relative rounded-xl p-6 h-96 overflow-hidden transition-all duration-500 ${
+              mapView === 'satellite' ? 'bg-gradient-to-br from-gray-900 to-blue-900' :
+              mapView === 'hybrid' ? 'bg-gradient-to-br from-green-900 to-gray-900' :
+              'bg-gradient-to-br from-amber-900 to-yellow-900'
+            }`}>
+              {/* Dynamic Background Effect */}
               <div className="absolute inset-0 opacity-20">
                 <div className="grid grid-cols-8 grid-rows-6 h-full w-full">
                   {Array.from({length: 48}).map((_, i) => (
-                    <div key={i} className={`border border-blue-500/20 ${Math.random() > 0.7 ? 'bg-green-500/10' : Math.random() > 0.8 ? 'bg-yellow-500/10' : ''}`}></div>
+                    <div key={i} className={`border transition-all duration-300 ${
+                      mapView === 'satellite' ? 'border-blue-500/20' :
+                      mapView === 'hybrid' ? 'border-green-500/20' :
+                      'border-yellow-500/20'
+                    } ${
+                      Math.random() > 0.7 ? 
+                        (mapView === 'satellite' ? 'bg-green-500/10' :
+                         mapView === 'hybrid' ? 'bg-blue-500/10' :
+                         'bg-red-500/10') : 
+                        Math.random() > 0.8 ? 
+                          (mapView === 'satellite' ? 'bg-yellow-500/10' :
+                           mapView === 'hybrid' ? 'bg-purple-500/10' :
+                           'bg-green-500/10') : ''
+                    }`}></div>
                   ))}
                 </div>
               </div>
+              
+              {/* Terrain Effects */}
+              {mapView === 'terrain' && (
+                <div className="absolute inset-0 opacity-30">
+                  <div className="w-full h-full bg-gradient-radial from-transparent via-yellow-500/10 to-orange-500/20"></div>
+                  {/* Mountain Effects */}
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
+                    <polygon points="50,250 80,200 110,250" fill="#8b4513" opacity="0.3"/>
+                    <polygon points="300,250 330,180 360,250" fill="#8b4513" opacity="0.3"/>
+                    <polygon points="180,250 220,160 260,250" fill="#8b4513" opacity="0.3"/>
+                  </svg>
+                </div>
+              )}
+              
+              {/* Hybrid View Effects */}
+              {mapView === 'hybrid' && (
+                <div className="absolute inset-0 opacity-20">
+                  <div className="grid grid-cols-4 grid-rows-4 h-full w-full">
+                    {Array.from({length: 16}).map((_, i) => (
+                      <div key={i} className="border border-green-400/10 flex items-center justify-center">
+                        <div className={`w-2 h-2 rounded-full ${
+                          Math.random() > 0.5 ? 'bg-green-400/30' : 'bg-blue-400/30'
+                        } animate-pulse`}></div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
               
               {/* Route Visualization */}
               <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
@@ -258,7 +303,7 @@ export default function RouteCalculator() {
                 {/* Optimized Route Path */}
                 <path 
                   d="M 80 150 Q 150 120 200 140 Q 250 160 320 180" 
-                  stroke="url(#routeGradient)" 
+                  stroke={`url(#routeGradient-${mapView})`}
                   strokeWidth="4" 
                   fill="none"
                   className="animate-pulse"
@@ -278,9 +323,19 @@ export default function RouteCalculator() {
                 <circle cx={200} cy={140} r="4" fill="#8b5cf6" className="animate-bounce" />
                 
                 <defs>
-                  <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <linearGradient id="routeGradient-satellite" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#10b981" />
                     <stop offset="50%" stopColor="#3b82f6" />
+                    <stop offset="100%" stopColor="#ef4444" />
+                  </linearGradient>
+                  <linearGradient id="routeGradient-hybrid" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#10b981" />
+                    <stop offset="50%" stopColor="#10b981" />
+                    <stop offset="100%" stopColor="#ef4444" />
+                  </linearGradient>
+                  <linearGradient id="routeGradient-terrain" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#10b981" />
+                    <stop offset="50%" stopColor="#f59e0b" />
                     <stop offset="100%" stopColor="#ef4444" />
                   </linearGradient>
                 </defs>
@@ -295,6 +350,17 @@ export default function RouteCalculator() {
               </div>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/70 rounded-lg px-3 py-2">
                 <div className="text-purple-400 text-xs">IA Optimizado</div>
+              </div>
+              
+              {/* Map Type Indicator */}
+              <div className="absolute top-4 right-4 bg-black/70 rounded-lg px-3 py-2">
+                <div className={`text-xs font-bold ${
+                  mapView === 'satellite' ? 'text-blue-400' :
+                  mapView === 'hybrid' ? 'text-green-400' :
+                  'text-yellow-400'
+                }`}>
+                  {mapView.toUpperCase()} VIEW
+                </div>
               </div>
               
               {/* Map Controls */}
