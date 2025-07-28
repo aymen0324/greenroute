@@ -238,132 +238,217 @@ export default function RouteCalculator() {
               Visualización Satelital {mapView.toUpperCase()}
             </h3>
             
-            {/* Advanced Map Placeholder */}
-            <div className={`relative rounded-xl p-6 h-96 overflow-hidden transition-all duration-500 ${
-              mapView === 'satellite' ? 'bg-gradient-to-br from-gray-900 to-blue-900' :
-              mapView === 'hybrid' ? 'bg-gradient-to-br from-green-900 to-gray-900' :
-              'bg-gradient-to-br from-amber-900 to-yellow-900'
+            {/* Google Maps Style Map */}
+            <div className={`relative rounded-xl overflow-hidden h-96 transition-all duration-500 ${
+              mapView === 'satellite' ? 'bg-gray-900' :
+              mapView === 'hybrid' ? 'bg-gray-800' :
+              'bg-amber-50'
             }`}>
-              {/* Dynamic Background Effect */}
-              <div className="absolute inset-0 opacity-20">
-                <div className="grid grid-cols-8 grid-rows-6 h-full w-full">
-                  {Array.from({length: 48}).map((_, i) => (
-                    <div key={i} className={`border transition-all duration-300 ${
-                      mapView === 'satellite' ? 'border-blue-500/20' :
-                      mapView === 'hybrid' ? 'border-green-500/20' :
-                      'border-yellow-500/20'
-                    } ${
-                      Math.random() > 0.7 ? 
-                        (mapView === 'satellite' ? 'bg-green-500/10' :
-                         mapView === 'hybrid' ? 'bg-blue-500/10' :
-                         'bg-red-500/10') : 
-                        Math.random() > 0.8 ? 
-                          (mapView === 'satellite' ? 'bg-yellow-500/10' :
-                           mapView === 'hybrid' ? 'bg-purple-500/10' :
-                           'bg-green-500/10') : ''
-                    }`}></div>
-                  ))}
-                </div>
-              </div>
               
-              {/* Terrain Effects */}
-              {mapView === 'terrain' && (
-                <div className="absolute inset-0 opacity-30">
-                  <div className="w-full h-full bg-gradient-radial from-transparent via-yellow-500/10 to-orange-500/20"></div>
-                  {/* Mountain Effects */}
-                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
-                    <polygon points="50,250 80,200 110,250" fill="#8b4513" opacity="0.3"/>
-                    <polygon points="300,250 330,180 360,250" fill="#8b4513" opacity="0.3"/>
-                    <polygon points="180,250 220,160 260,250" fill="#8b4513" opacity="0.3"/>
-                  </svg>
-                </div>
-              )}
-              
-              {/* Hybrid View Effects */}
-              {mapView === 'hybrid' && (
-                <div className="absolute inset-0 opacity-20">
-                  <div className="grid grid-cols-4 grid-rows-4 h-full w-full">
-                    {Array.from({length: 16}).map((_, i) => (
-                      <div key={i} className="border border-green-400/10 flex items-center justify-center">
-                        <div className={`w-2 h-2 rounded-full ${
-                          Math.random() > 0.5 ? 'bg-green-400/30' : 'bg-blue-400/30'
-                        } animate-pulse`}></div>
-                      </div>
-                    ))}
+              {/* Satellite View - Google Earth Style */}
+              {mapView === 'satellite' && (
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-black">
+                  {/* Satellite imagery simulation */}
+                  <div className="absolute inset-0 opacity-80">
+                    <div className="w-full h-full relative">
+                      {/* Cities and urban areas */}
+                      <div className="absolute top-1/4 left-1/4 w-16 h-12 bg-yellow-400/20 rounded-sm"></div>
+                      <div className="absolute top-3/4 right-1/4 w-20 h-14 bg-yellow-400/20 rounded-sm"></div>
+                      <div className="absolute top-1/2 left-1/3 w-8 h-6 bg-yellow-400/15 rounded-sm"></div>
+                      
+                      {/* Roads network */}
+                      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
+                        <path d="M 0 150 L 400 180" stroke="#4a5568" strokeWidth="2" opacity="0.6"/>
+                        <path d="M 80 0 L 100 300" stroke="#4a5568" strokeWidth="1.5" opacity="0.5"/>
+                        <path d="M 200 50 L 350 250" stroke="#4a5568" strokeWidth="1" opacity="0.4"/>
+                        <path d="M 50 250 L 300 100" stroke="#4a5568" strokeWidth="1" opacity="0.4"/>
+                      </svg>
+                      
+                      {/* Forests and green areas */}
+                      <div className="absolute top-1/6 right-1/3 w-24 h-16 bg-green-600/30 rounded-lg"></div>
+                      <div className="absolute bottom-1/4 left-1/6 w-20 h-20 bg-green-600/25 rounded-full"></div>
+                      
+                      {/* Water bodies */}
+                      <div className="absolute top-2/3 right-1/6 w-16 h-8 bg-blue-500/40 rounded-full"></div>
+                    </div>
                   </div>
                 </div>
               )}
               
-              {/* Route Visualization */}
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
-                {/* Background Cities */}
-                <circle cx={80} cy={150} r="8" fill="#10b981" className="animate-pulse" />
-                <circle cx={320} cy={180} r="8" fill="#ef4444" className="animate-pulse" />
+              {/* Hybrid View - Google Maps Hybrid Style */}
+              {mapView === 'hybrid' && (
+                <div className="absolute inset-0 bg-gradient-to-br from-green-100 via-gray-100 to-blue-100">
+                  {/* Street map base */}
+                  <div className="absolute inset-0">
+                    <svg className="w-full h-full" viewBox="0 0 400 300">
+                      {/* Grid streets */}
+                      {Array.from({length: 20}).map((_, i) => (
+                        <g key={i}>
+                          <line x1={i * 20} y1="0" x2={i * 20} y2="300" stroke="#d1d5db" strokeWidth="0.5"/>
+                          <line x1="0" y1={i * 15} x2="400" y2={i * 15} stroke="#d1d5db" strokeWidth="0.5"/>
+                        </g>
+                      ))}
+                      
+                      {/* Main roads */}
+                      <path d="M 0 150 L 400 180" stroke="#374151" strokeWidth="3"/>
+                      <path d="M 80 0 L 100 300" stroke="#374151" strokeWidth="2.5"/>
+                      <path d="M 200 50 L 350 250" stroke="#6b7280" strokeWidth="2"/>
+                      
+                      {/* Highways */}
+                      <path d="M 0 120 L 400 140" stroke="#1f2937" strokeWidth="4"/>
+                      <path d="M 0 122 L 400 142" stroke="#fbbf24" strokeWidth="1" strokeDasharray="10,5"/>
+                    </svg>
+                    
+                    {/* Buildings */}
+                    <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-gray-400 shadow-sm"></div>
+                    <div className="absolute top-1/4 left-1/3 w-3 h-6 bg-gray-500 shadow-sm"></div>
+                    <div className="absolute top-3/4 right-1/4 w-5 h-3 bg-gray-400 shadow-sm"></div>
+                    <div className="absolute top-2/3 right-1/4 w-3 h-5 bg-gray-500 shadow-sm"></div>
+                    
+                    {/* Parks */}
+                    <div className="absolute top-1/6 right-1/3 w-12 h-8 bg-green-300 rounded-sm"></div>
+                    <div className="absolute bottom-1/4 left-1/6 w-10 h-10 bg-green-300 rounded-full"></div>
+                  </div>
+                  
+                  {/* Street labels */}
+                  <div className="absolute top-36 left-20 text-xs text-gray-700 font-semibold bg-white/80 px-1 rounded">Av. Principal</div>
+                  <div className="absolute bottom-20 right-20 text-xs text-gray-700 font-semibold bg-white/80 px-1 rounded">C/ Mayor</div>
+                </div>
+              )}
+              
+              {/* Terrain View - Google Terrain Style */}
+              {mapView === 'terrain' && (
+                <div className="absolute inset-0 bg-gradient-to-br from-green-200 via-yellow-100 to-orange-200">
+                  {/* Topographic style */}
+                  <div className="absolute inset-0">
+                    <svg className="w-full h-full" viewBox="0 0 400 300">
+                      {/* Contour lines */}
+                      <path d="M 50 100 Q 150 80 250 100 Q 350 120 400 100" stroke="#8b4513" strokeWidth="1" fill="none" opacity="0.4"/>
+                      <path d="M 30 130 Q 130 110 230 130 Q 330 150 380 130" stroke="#8b4513" strokeWidth="1" fill="none" opacity="0.4"/>
+                      <path d="M 70 160 Q 170 140 270 160 Q 370 180 420 160" stroke="#8b4513" strokeWidth="1" fill="none" opacity="0.4"/>
+                      
+                      {/* Mountains */}
+                      <polygon points="180,180 220,120 260,180" fill="#8b7355" opacity="0.6"/>
+                      <polygon points="300,200 340,140 380,200" fill="#8b7355" opacity="0.5"/>
+                      <polygon points="50,220 80,180 110,220" fill="#a0915a" opacity="0.4"/>
+                      
+                      {/* Rivers */}
+                      <path d="M 0 200 Q 100 190 200 210 Q 300 230 400 220" stroke="#3b82f6" strokeWidth="3" fill="none" opacity="0.7"/>
+                      <path d="M 150 0 Q 160 100 170 200 Q 180 250 190 300" stroke="#3b82f6" strokeWidth="2" fill="none" opacity="0.6"/>
+                    </svg>
+                    
+                    {/* Elevation shading */}
+                    <div className="absolute inset-0 bg-gradient-radial from-transparent via-yellow-500/10 to-orange-500/20"></div>
+                    
+                    {/* Forests */}
+                    <div className="absolute top-1/6 right-1/3 w-20 h-12 bg-green-500/50 rounded-lg"></div>
+                    <div className="absolute bottom-1/4 left-1/6 w-16 h-16 bg-green-600/40 rounded-full"></div>
+                    <div className="absolute top-1/2 left-2/3 w-12 h-8 bg-green-500/45 rounded-lg"></div>
+                  </div>
+                  
+                  {/* Terrain labels */}
+                  <div className="absolute top-32 left-48 text-xs text-amber-800 font-semibold">Sierra Norte</div>
+                  <div className="absolute bottom-16 right-24 text-xs text-blue-700 font-semibold">Río Verde</div>
+                </div>
+              )}
+              
+              {/* Route Visualization - Enhanced for Google Maps Style */}
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300" style={{ zIndex: 10 }}>
+                {/* Route shadow */}
+                <path 
+                  d="M 80 152 Q 150 122 200 142 Q 250 162 320 182" 
+                  stroke="rgba(0,0,0,0.3)"
+                  strokeWidth="6" 
+                  fill="none"
+                />
                 
-                {/* Optimized Route Path */}
+                {/* Main optimized route */}
                 <path 
                   d="M 80 150 Q 150 120 200 140 Q 250 160 320 180" 
-                  stroke={`url(#routeGradient-${mapView})`}
+                  stroke="#1976d2"
                   strokeWidth="4" 
                   fill="none"
-                  className="animate-pulse"
+                  strokeLinecap="round"
                 />
                 
-                {/* Alternative Route (less optimal) */}
+                {/* Route direction arrows */}
+                <polygon points="140,125 150,120 145,130" fill="#1976d2"/>
+                <polygon points="240,155 250,150 245,165" fill="#1976d2"/>
+                <polygon points="290,170 300,165 295,180" fill="#1976d2"/>
+                
+                {/* Alternative route */}
                 <path 
                   d="M 80 150 Q 200 100 250 120 Q 280 160 320 180" 
-                  stroke="#6b7280" 
-                  strokeWidth="2" 
+                  stroke="#9ca3af" 
+                  strokeWidth="3" 
                   fill="none" 
-                  strokeDasharray="5,5"
-                  opacity="0.5"
+                  strokeDasharray="8,4"
+                  opacity="0.7"
                 />
                 
-                {/* Route Markers */}
-                <circle cx={200} cy={140} r="4" fill="#8b5cf6" className="animate-bounce" />
+                {/* Google Maps style markers */}
+                <g transform="translate(80,150)">
+                  <circle cx="0" cy="-8" r="12" fill="#34a853"/>
+                  <circle cx="0" cy="-8" r="6" fill="white"/>
+                  <text x="0" y="-5" textAnchor="middle" fontSize="8" fill="#34a853" fontWeight="bold">A</text>
+                </g>
                 
-                <defs>
-                  <linearGradient id="routeGradient-satellite" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#10b981" />
-                    <stop offset="50%" stopColor="#3b82f6" />
-                    <stop offset="100%" stopColor="#ef4444" />
-                  </linearGradient>
-                  <linearGradient id="routeGradient-hybrid" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#10b981" />
-                    <stop offset="50%" stopColor="#10b981" />
-                    <stop offset="100%" stopColor="#ef4444" />
-                  </linearGradient>
-                  <linearGradient id="routeGradient-terrain" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#10b981" />
-                    <stop offset="50%" stopColor="#f59e0b" />
-                    <stop offset="100%" stopColor="#ef4444" />
-                  </linearGradient>
-                </defs>
+                <g transform="translate(320,180)">
+                  <circle cx="0" cy="-8" r="12" fill="#ea4335"/>
+                  <circle cx="0" cy="-8" r="6" fill="white"/>
+                  <text x="0" y="-5" textAnchor="middle" fontSize="8" fill="#ea4335" fontWeight="bold">B</text>
+                </g>
+                
+                {/* Waypoint */}
+                <circle cx={200} cy={140} r="6" fill="#fbbc04" stroke="white" strokeWidth="2"/>
               </svg>
               
-              {/* Labels */}
-              <div className="absolute top-4 left-4 bg-black/70 rounded-lg px-3 py-2">
-                <div className="text-green-400 text-sm font-bold">{origin}</div>
+              {/* Google Maps style location labels */}
+              <div className="absolute top-32 left-16 bg-white rounded-lg px-3 py-2 shadow-lg border">
+                <div className="text-green-600 text-sm font-bold">{origin || 'Origen'}</div>
+                <div className="text-xs text-gray-500">Punto de partida</div>
               </div>
-              <div className="absolute bottom-4 right-4 bg-black/70 rounded-lg px-3 py-2">
-                <div className="text-red-400 text-sm font-bold">{destination}</div>
+              <div className="absolute bottom-16 right-12 bg-white rounded-lg px-3 py-2 shadow-lg border">
+                <div className="text-red-600 text-sm font-bold">{destination || 'Destino'}</div>
+                <div className="text-xs text-gray-500">Punto de llegada</div>
               </div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/70 rounded-lg px-3 py-2">
-                <div className="text-purple-400 text-xs">IA Optimizado</div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg px-3 py-2 shadow-lg border">
+                <div className="text-yellow-600 text-xs font-bold">Parada Optimizada</div>
+                <div className="text-xs text-gray-500">IA Route</div>
               </div>
               
-              {/* Map Type Indicator */}
-              <div className="absolute top-4 right-4 bg-black/70 rounded-lg px-3 py-2">
+              {/* Google Maps style zoom controls */}
+              <div className="absolute bottom-4 left-4 bg-white rounded-lg shadow-lg overflow-hidden">
+                <button className="w-10 h-10 flex items-center justify-center hover:bg-gray-100 border-b">
+                  <span className="text-gray-600 text-xl">+</span>
+                </button>
+                <button className="w-10 h-10 flex items-center justify-center hover:bg-gray-100">
+                  <span className="text-gray-600 text-xl">−</span>
+                </button>
+              </div>
+              
+              {/* Google Maps style fullscreen button */}
+              <div className="absolute bottom-4 right-4 bg-white rounded-lg shadow-lg">
+                <button className="w-10 h-10 flex items-center justify-center hover:bg-gray-100">
+                  <svg className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 11-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zM16 4a1 1 0 00-1-1h-4a1 1 0 000 2h1.586l-2.293 2.293a1 1 0 001.414 1.414L13 6.414V8a1 1 0 002 0V4z"/>
+                  </svg>
+                </button>
+              </div>
+              
+              {/* Map type indicator */}
+              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1 shadow-lg">
                 <div className={`text-xs font-bold ${
-                  mapView === 'satellite' ? 'text-blue-400' :
-                  mapView === 'hybrid' ? 'text-green-400' :
-                  'text-yellow-400'
+                  mapView === 'satellite' ? 'text-blue-600' :
+                  mapView === 'hybrid' ? 'text-green-600' :
+                  'text-amber-600'
                 }`}>
-                  {mapView.toUpperCase()} VIEW
+                  {mapView === 'satellite' ? 'Satélite' :
+                   mapView === 'hybrid' ? 'Híbrido' :
+                   'Terreno'}
                 </div>
               </div>
-              
-              {/* Map Controls */}
+            </div>
               <div className="absolute top-4 right-4 flex flex-col gap-2">
                 <button className="bg-slate-700/80 hover:bg-slate-600 p-2 rounded-lg transition-colors">
                   <Zap className="w-4 h-4 text-yellow-400" />

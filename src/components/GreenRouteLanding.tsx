@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Features from "../components/Features";
 
 // Floating particles component
@@ -196,9 +197,15 @@ export default function GreenRouteLanding() {
           GreenRoute
         </motion.h1>
         <ul className="flex space-x-6 text-gray-300 text-sm">
-          {['Inicio', 'Funcionalidades', 'Contacto'].map((item, index) => (
+          {[
+            { name: 'Inicio', path: '/' },
+            { name: 'Rutas', path: '/rutas' },
+            { name: 'Eficiencia', path: '/eficiencia-verde' },
+            { name: 'Escalabilidad', path: '/escalabilidad' },
+            { name: 'Tecnologías', path: '/technologies' }
+          ].map((item, index) => (
             <motion.li 
-              key={item}
+              key={item.name}
               className="hover:text-white cursor-pointer transition-colors relative"
               whileHover={{ 
                 scale: 1.1,
@@ -208,7 +215,9 @@ export default function GreenRouteLanding() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 + 0.3 }}
             >
-              {item}
+              <Link to={item.path}>
+                {item.name}
+              </Link>
               <motion.div
                 className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400"
                 whileHover={{ width: "100%" }}
@@ -341,41 +350,43 @@ export default function GreenRouteLanding() {
           transition={{ delay: 2, duration: 0.6 }}
           className="relative"
         >
-          <motion.button
-            className="relative bg-gradient-to-r from-green-400 to-lime-500 text-black font-semibold py-4 px-10 rounded-full text-lg shadow-2xl overflow-hidden group"
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 0 50px rgba(16, 185, 129, 0.6)"
-            }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-          >
-            {/* Button background animation */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-lime-400 to-green-500 opacity-0 group-hover:opacity-100"
-              transition={{ duration: 0.3 }}
-            />
-            
-            {/* Button text */}
-            <span className="relative z-10 flex items-center gap-2">
-              <span>Empezar ahora</span>
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                →
-              </motion.span>
-            </span>
-            
-            {/* Glowing border */}
-            <motion.div
-              className="absolute inset-0 rounded-full border-2 border-green-400/50"
-              animate={{
-                borderColor: ["rgba(16, 185, 129, 0.5)", "rgba(16, 185, 129, 1)", "rgba(16, 185, 129, 0.5)"],
+          <Link to="/rutas">
+            <motion.button
+              className="relative bg-gradient-to-r from-green-400 to-lime-500 text-black font-semibold py-4 px-10 rounded-full text-lg shadow-2xl overflow-hidden group"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 50px rgba(16, 185, 129, 0.6)"
               }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </motion.button>
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
+              {/* Button background animation */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-lime-400 to-green-500 opacity-0 group-hover:opacity-100"
+                transition={{ duration: 0.3 }}
+              />
+              
+              {/* Button text */}
+              <span className="relative z-10 flex items-center gap-2">
+                <span>Empezar ahora</span>
+                <motion.span
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  →
+                </motion.span>
+              </span>
+              
+              {/* Glowing border */}
+              <motion.div
+                className="absolute inset-0 rounded-full border-2 border-green-400/50"
+                animate={{
+                  borderColor: ["rgba(16, 185, 129, 0.5)", "rgba(16, 185, 129, 1)", "rgba(16, 185, 129, 0.5)"],
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </motion.button>
+          </Link>
           
           {/* Pulsating ring effect */}
           <motion.div
