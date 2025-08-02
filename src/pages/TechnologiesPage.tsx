@@ -143,29 +143,30 @@ export default function TechnologiesPage() {
           <div className="bg-gradient-to-br from-green-800/80 to-emerald-900/60 backdrop-blur-sm border border-green-400/30 rounded-3xl p-8 text-center">
             <h2 className="text-3xl font-bold text-white mb-6">
               <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
-                Proyecto Portfolio de Nivel Senior
+                Mi Proyecto Portfolio de Nivel Senior
               </span>
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="bg-green-900/30 rounded-xl p-4">
                 <div className="text-3xl font-bold text-green-400 mb-2">15+</div>
-                <div className="text-green-200 text-sm">Tecnologías implementadas</div>
+                <div className="text-green-200 text-sm">Tecnologías que domino</div>
               </div>
               <div className="bg-green-900/30 rounded-xl p-4">
                 <div className="text-3xl font-bold text-green-400 mb-2">3K+</div>
-                <div className="text-green-200 text-sm">Líneas de código</div>
+                <div className="text-green-200 text-sm">Líneas de código escritas</div>
               </div>
               <div className="bg-green-900/30 rounded-xl p-4">
                 <div className="text-3xl font-bold text-green-400 mb-2">100%</div>
-                <div className="text-green-200 text-sm">Funcional y deployable</div>
+                <div className="text-green-200 text-sm">Arquitectura que diseñé</div>
               </div>
             </div>
             
             <p className="text-xl text-green-100 mb-6 leading-relaxed">
-              Este proyecto demuestra <span className="text-yellow-400 font-bold">competencias de nivel senior</span> en 
-              desarrollo full-stack, arquitectura de sistemas, y tecnologías emergentes. 
-              Perfecto para destacar en el CV de un <span className="text-green-400 font-bold">Ingeniero Informático UMH</span>.
+              <span className="text-yellow-400 font-bold">Desarrollé este proyecto</span> para demostrar mis 
+              competencias de nivel senior en desarrollo full-stack, arquitectura de sistemas, y tecnologías emergentes. 
+              <span className="text-blue-400 font-bold">Como Estudiante de Informática UMH</span>, implementé una solución 
+              completa que integra IA, DevOps, y optimización logística verde.
             </p>
             
             <div className="flex flex-col md:flex-row gap-4 justify-center">
@@ -173,10 +174,10 @@ export default function TechnologiesPage() {
                 onClick={() => window.open('https://github.com/aymen0324/greenroute', '_blank')}
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-3 px-8 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl flex items-center gap-3 justify-center"
               >
-                Ver Código en GitHub
+                Ver Mi Código en GitHub
               </button>
               <button className="border-2 border-green-400 hover:bg-green-400/10 text-green-300 hover:text-white font-bold py-3 px-8 rounded-xl transition-all duration-200 flex items-center gap-3 justify-center">
-                Documentación Técnica
+                Mi Documentación Técnica
               </button>
             </div>
           </div>

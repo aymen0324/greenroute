@@ -7,7 +7,8 @@ import {
   Eye, Target, Cpu, Database, Radio, Radar
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import RouteCalculator from "../components/RouteCalculatorNew";
+import RouteCalculator from "../components/RouteCalculator";
+import BusinessAnalyticsDashboard from "../components/BusinessAnalyticsDashboard";
 
 export default function RutasPage() {
   const navigate = useNavigate();
@@ -26,6 +27,85 @@ export default function RutasPage() {
     { type: "optimization", message: "IA detectó nueva ruta 18% más eficiente para zona industrial Barcelona.", severity: "success", time: "hace 8 min" },
     { type: "prediction", message: "Algoritmo predice reducción de 12% en tiempos para rutas nocturnas.", severity: "success", time: "hace 12 min" }
   ]);
+
+  // Sample routes for 3D visualization - Enhanced with new properties
+  const sampleRoutes = [
+    {
+      id: 'route-1',
+      start: { lat: 40.4168, lng: -3.7038, name: 'Centro Logístico Madrid', city: 'Madrid' },
+      end: { lat: 41.3851, lng: 2.1734, name: 'Puerto de Barcelona', city: 'Barcelona' },
+      status: 'active' as const,
+      efficiency: 95,
+      co2Saved: 125,
+      distance: 621,
+      estimatedTime: '6h 15min',
+      fuelSaved: 45.2,
+      priority: 'high' as const,
+      vehicles: 3,
+      cargo: 'Electrónicos',
+      progress: 75
+    },
+    {
+      id: 'route-2',
+      start: { lat: 39.4699, lng: -0.3763, name: 'Hub Valencia', city: 'Valencia' },
+      end: { lat: 37.3891, lng: -5.9845, name: 'Centro Sevilla', city: 'Sevilla' },
+      status: 'optimized' as const,
+      efficiency: 87,
+      co2Saved: 89,
+      distance: 467,
+      estimatedTime: '4h 45min',
+      fuelSaved: 32.8,
+      priority: 'medium' as const,
+      vehicles: 2,
+      cargo: 'Alimentación',
+      progress: 45
+    },
+    {
+      id: 'route-3',
+      start: { lat: 43.2627, lng: -2.9253, name: 'Puerto Bilbao', city: 'Bilbao' },
+      end: { lat: 42.8805, lng: -8.5456, name: 'Puerto Santiago', city: 'Santiago' },
+      status: 'planned' as const,
+      efficiency: 92,
+      co2Saved: 156,
+      distance: 285,
+      estimatedTime: '3h 20min',
+      fuelSaved: 28.9,
+      priority: 'high' as const,
+      vehicles: 4,
+      cargo: 'Maquinaria',
+      progress: 0
+    },
+    {
+      id: 'route-4',
+      start: { lat: 36.7213, lng: -4.4216, name: 'Costa del Sol', city: 'Málaga' },
+      end: { lat: 28.4636, lng: -16.2518, name: 'Hub Canarias', city: 'Tenerife' },
+      status: 'active' as const,
+      efficiency: 88,
+      co2Saved: 234,
+      distance: 1123,
+      estimatedTime: '12h 30min',
+      fuelSaved: 78.5,
+      priority: 'high' as const,
+      vehicles: 1,
+      cargo: 'Productos Frescos',
+      progress: 60
+    },
+    {
+      id: 'route-5',
+      start: { lat: 41.6518, lng: -0.8797, name: 'Hub Zaragoza', city: 'Zaragoza' },
+      end: { lat: 40.9701, lng: -5.6635, name: 'Centro Salamanca', city: 'Salamanca' },
+      status: 'optimized' as const,
+      efficiency: 91,
+      co2Saved: 67,
+      distance: 156,
+      estimatedTime: '2h 10min',
+      fuelSaved: 18.4,
+      priority: 'low' as const,
+      vehicles: 1,
+      cargo: 'Textil',
+      progress: 30
+    }
+  ];
 
   // Simulate real-time data updates
   useEffect(() => {
@@ -198,6 +278,59 @@ export default function RutasPage() {
           </div>
           
           <RouteCalculator />
+        </div>
+      </div>
+
+      {/* 3D Route Visualization Section */}
+      <div className="relative z-10 px-6 mb-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+                Visualización 3D de Rutas en Tiempo Real
+              </span>
+            </h2>
+            <p className="text-xl text-blue-200 max-w-3xl mx-auto">
+              Explora tus rutas activas en un entorno 3D interactivo. Visualiza el estado, 
+              eficiencia y impacto ambiental de cada trayecto en tiempo real.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+            <div className="bg-gradient-to-br from-green-900/40 to-emerald-900/60 backdrop-blur-sm border border-green-400/30 rounded-xl p-4">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-green-400 font-semibold">Rutas Activas</span>
+              </div>
+              <p className="text-2xl font-bold text-white">{sampleRoutes.filter(r => r.status === 'active').length}</p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-blue-900/40 to-cyan-900/60 backdrop-blur-sm border border-blue-400/30 rounded-xl p-4">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
+                <span className="text-blue-400 font-semibold">Optimizadas</span>
+              </div>
+              <p className="text-2xl font-bold text-white">{sampleRoutes.filter(r => r.status === 'optimized').length}</p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-yellow-900/40 to-orange-900/60 backdrop-blur-sm border border-yellow-400/30 rounded-xl p-4">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                <span className="text-yellow-400 font-semibold">Planificadas</span>
+              </div>
+              <p className="text-2xl font-bold text-white">{sampleRoutes.filter(r => r.status === 'planned').length}</p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/60 backdrop-blur-sm border border-purple-400/30 rounded-xl p-4">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+                <span className="text-purple-400 font-semibold">CO₂ Total Ahorrado</span>
+              </div>
+              <p className="text-2xl font-bold text-white">{sampleRoutes.reduce((acc, r) => acc + r.co2Saved, 0)}kg</p>
+            </div>
+          </div>
+          
+          <BusinessAnalyticsDashboard />
         </div>
       </div>
 
