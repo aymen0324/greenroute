@@ -141,32 +141,33 @@ npm run preview
 
 
 ### 📊 **ROI Calculator - Calculadora de Retorno de Inversión**
-![ROI Calculator](https://i.imgur.com/example2.png)
-*Calculadora completa con validación avanzada y resultados detallados*
+<img width="1892" height="978" alt="image" src="https://github.com/user-attachments/assets/ceb6f98b-8a53-435a-aa79-e8148c0b7d73" />
+<img width="1872" height="953" alt="image" src="https://github.com/user-attachments/assets/6d170f28-69d6-4d2a-b039-f1a1f9f1a582" />
+<img width="659" height="870" alt="image" src="https://github.com/user-attachments/assets/a3510f3e-b481-4efd-9b71-1d05716af671" />
+
 
 ### 🎯 **Modal de Demo Personalizada**
-![Demo Modal](https://i.imgur.com/example3.png)
-*Formulario inteligente con análisis de ROI personalizado*
+<img width="659" height="870" alt="image" src="https://github.com/user-attachments/assets/a3510f3e-b481-4efd-9b71-1d05716af671" />
 
 ### 🚛 **Fleet Management - Gestión de Flota**
-![Fleet Management](https://i.imgur.com/example4.png)
-*Dashboard de gestión de vehículos con métricas en tiempo real*
+<img width="1883" height="990" alt="image" src="https://github.com/user-attachments/assets/135c093b-acf2-44d6-82ea-3d245cc885a9" />
+
 
 ### 🤖 **AI Optimizer - Optimizador de IA**
-![AI Optimizer](https://i.imgur.com/example5.png)
-*Selección de algoritmos y parámetros de optimización*
+ <img width="1888" height="924" alt="image" src="https://github.com/user-attachments/assets/c0fc803d-2248-4ba3-940c-25bf51a7cb87" />
+
 
 ### 📈 **Analytics Dashboard - Panel de Análisis**
-![Analytics Dashboard](https://i.imgur.com/example6.png)
-*Métricas principales y dashboard en tiempo real*
+<img width="1887" height="995" alt="image" src="https://github.com/user-attachments/assets/8d9c2528-c0c5-4464-b84e-d0e7798d8bc8" />
+
 
 ### 🏆 **Gamification - Sistema de Gamificación**
-![Gamification](https://i.imgur.com/example7.png)
-*Sistema de logros, niveles y recompensas*
+<img width="1890" height="917" alt="image" src="https://github.com/user-attachments/assets/76c80e92-9cea-4525-bb69-3c897a91c100" />
+
 
 ### 📡 **Live Operations - Operaciones en Vivo**
-![Live Operations](https://i.imgur.com/example8.png)
-*Monitoreo en tiempo real de flotas con IA predictiva*
+<img width="1890" height="936" alt="image" src="https://github.com/user-attachments/assets/ffba9d27-a3d5-4a8e-90b8-e7c90b25120b" />
+
 
 ---
 
