@@ -134,6 +134,42 @@ npm run preview
 
 ---
 
+## 📸 Screenshots del Proyecto
+
+### 🏠 **Home Page - Página Principal**
+![Home Page](https://i.imgur.com/example1.png)
+*Interfaz moderna con hero section, navegación y estadísticas destacadas*
+
+### 📊 **ROI Calculator - Calculadora de Retorno de Inversión**
+![ROI Calculator](https://i.imgur.com/example2.png)
+*Calculadora completa con validación avanzada y resultados detallados*
+
+### 🎯 **Modal de Demo Personalizada**
+![Demo Modal](https://i.imgur.com/example3.png)
+*Formulario inteligente con análisis de ROI personalizado*
+
+### 🚛 **Fleet Management - Gestión de Flota**
+![Fleet Management](https://i.imgur.com/example4.png)
+*Dashboard de gestión de vehículos con métricas en tiempo real*
+
+### 🤖 **AI Optimizer - Optimizador de IA**
+![AI Optimizer](https://i.imgur.com/example5.png)
+*Selección de algoritmos y parámetros de optimización*
+
+### 📈 **Analytics Dashboard - Panel de Análisis**
+![Analytics Dashboard](https://i.imgur.com/example6.png)
+*Métricas principales y dashboard en tiempo real*
+
+### 🏆 **Gamification - Sistema de Gamificación**
+![Gamification](https://i.imgur.com/example7.png)
+*Sistema de logros, niveles y recompensas*
+
+### 📡 **Live Operations - Operaciones en Vivo**
+![Live Operations](https://i.imgur.com/example8.png)
+*Monitoreo en tiempo real de flotas con IA predictiva*
+
+---
+
 ## 🎯 Funcionalidades Principales
 
 ### 📊 **ROI Calculator**
@@ -153,42 +189,6 @@ npm run preview
 - **Animaciones fluidas** con Framer Motion
 - **Tema oscuro/claro** con transiciones suaves
 - **Validación en tiempo real** con feedback visual
-
----
-
-## 📸 Screenshots del Proyecto
-
-### 🏠 **Home Page**
-![Home Page](https://i.imgur.com/example1.png)
-*Interfaz principal con hero section y navegación moderna*
-
-### 📊 **ROI Calculator**
-![ROI Calculator](https://i.imgur.com/example2.png)
-*Calculadora de retorno de inversión con validación avanzada*
-
-### 🎯 **Modal de Demo**
-![Modal de Demo](https://i.imgur.com/example3.png)
-*Formulario personalizado basado en ROI calculado*
-
-### 🚛 **Fleet Management**
-![Fleet Management](https://i.imgur.com/example4.png)
-*Gestión inteligente de flotas con IA predictiva*
-
-### 🤖 **AI Optimizer**
-![AI Optimizer](https://i.imgur.com/example5.png)
-*Motor de optimización con algoritmos avanzados*
-
-### 📈 **Analytics Dashboard**
-![Analytics Dashboard](https://i.imgur.com/example6.png)
-*Dashboard en tiempo real con métricas avanzadas*
-
-### 🎮 **Gamification**
-![Gamification](https://i.imgur.com/example7.png)
-*Sistema de gamificación con logros y recompensas*
-
-### 📡 **Live Operations**
-![Live Operations](https://i.imgur.com/example8.png)
-*Monitoreo en tiempo real de operaciones*
 
 ---
 
