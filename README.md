@@ -279,31 +279,15 @@ npx vercel --prod
 ## 📞 Contacto y Redes
 
 ### 👤 **Información Personal**
-- **Email**: aymane.elkhilaly@example.com
+- **Email**: aymenkhilaly@gmail.com
 - **LinkedIn**: [Aymane El Khilaly](https://linkedin.com/in/aymane-el-khilaly)
 - **GitHub**: [@aymane0324](https://github.com/aymane0324)
-- **Portfolio**: [aymane-elkhilaly.dev](https://aymane-elkhilaly.dev)
-
-### 🌍 **Redes Sociales**
-- **Twitter**: [@aymane_tech](https://twitter.com/aymane_tech)
-- **Instagram**: [@aymane.dev](https://instagram.com/aymane.dev)
-- **YouTube**: [Aymane Dev](https://youtube.com/@aymanedev)
 
 ---
 
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
----
-
-## 🙏 Agradecimientos
-
-- **Universidad Miguel Hernández** por la formación académica
-- **Comunidad React** por las herramientas y librerías
-- **Vercel** por el hosting gratuito
-- **Tailwind CSS** por el framework de estilos
-- **Framer Motion** por las animaciones
 
 ---
 
