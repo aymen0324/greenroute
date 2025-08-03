@@ -137,8 +137,8 @@ npm run preview
 ## 📸 Screenshots del Proyecto
 
 ### 🏠 **Home Page - Página Principal**
-![Home Page](https://i.imgur.com/example1.png)
-*Interfaz moderna con hero section, navegación y estadísticas destacadas*
+<img width="1891" height="994" alt="image" src="https://github.com/user-attachments/assets/72543d65-258b-4973-9b30-ef7824bbe54f" />
+
 
 ### 📊 **ROI Calculator - Calculadora de Retorno de Inversión**
 ![ROI Calculator](https://i.imgur.com/example2.png)
