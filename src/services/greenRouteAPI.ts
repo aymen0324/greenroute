@@ -30,10 +30,11 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem('authToken');
-      window.location.href = '/login';
-    }
+    // Commented out for public site - no authentication required
+    // if (error.response?.status === 401) {
+    //   localStorage.removeItem('authToken');
+    //   window.location.href = '/login';
+    // }
     return Promise.reject(error);
   }
 );

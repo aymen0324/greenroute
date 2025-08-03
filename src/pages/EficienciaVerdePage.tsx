@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import EcoChatbot from "../components/EcoChatbot";
-import EcoImpactCalculator from "../components/EcoImpactCalculator";
+import SimpleCalculator from "../components/SimpleCalculator";
 import EcoMetricsLive from "../components/EcoMetricsLive";
 
 export default function EficienciaVerdePage() {
@@ -233,7 +233,7 @@ export default function EficienciaVerdePage() {
 
         {/* Impact Calculator */}
         <div className="mb-16">
-          <EcoImpactCalculator />
+          <SimpleCalculator />
         </div>
 
         {/* Technology Stack */}

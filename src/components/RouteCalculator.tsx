@@ -7,7 +7,7 @@ import {
   Radar, Cpu, Globe, Activity, Radio, Timer, ChevronDown,
   ChevronUp, BarChart3, Gauge, Fuel, Sparkles, Atom,
   CpuIcon, Network, Wifi, Signal, Database, Server,
-  CircuitBoard, Microchip, CpuIcon as CpuIcon2
+  CircuitBoard, Microchip
 } from 'lucide-react';
 
 interface RouteData {
@@ -102,8 +102,16 @@ const RouteCalculator: React.FC = () => {
     glow?: boolean;
   }> = ({ title, value, icon: Icon, color, subtitle, glow = false }) => (
     <motion.div
-      className={`relative p-6 rounded-2xl border border-${color}-500/30 bg-gradient-to-br from-${color}-900/20 via-${color}-800/10 to-${color}-900/20 backdrop-blur-sm ${
-        glow ? `shadow-lg shadow-${color}-500/25` : ''
+      className={`relative p-6 rounded-2xl border backdrop-blur-sm ${
+        color === 'cyan' ? 'border-cyan-500/30 bg-gradient-to-br from-cyan-900/20 via-cyan-800/10 to-cyan-900/20' :
+        color === 'blue' ? 'border-blue-500/30 bg-gradient-to-br from-blue-900/20 via-blue-800/10 to-blue-900/20' :
+        color === 'green' ? 'border-green-500/30 bg-gradient-to-br from-green-900/20 via-green-800/10 to-green-900/20' :
+        color === 'emerald' ? 'border-emerald-500/30 bg-gradient-to-br from-emerald-900/20 via-emerald-800/10 to-emerald-900/20' :
+        color === 'purple' ? 'border-purple-500/30 bg-gradient-to-br from-purple-900/20 via-purple-800/10 to-purple-900/20' :
+        color === 'orange' ? 'border-orange-500/30 bg-gradient-to-br from-orange-900/20 via-orange-800/10 to-orange-900/20' :
+        'border-cyan-500/30 bg-gradient-to-br from-cyan-900/20 via-cyan-800/10 to-cyan-900/20'
+      } ${
+        glow ? 'shadow-lg shadow-cyan-500/25' : ''
       }`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -124,8 +132,24 @@ const RouteCalculator: React.FC = () => {
       
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-4">
-          <div className={`p-3 rounded-xl bg-gradient-to-br from-${color}-500/20 to-${color}-600/20 border border-${color}-500/30`}>
-            <Icon size={24} className={`text-${color}-400`} />
+          <div className={`p-3 rounded-xl border ${
+            color === 'cyan' ? 'bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 border-cyan-500/30' :
+            color === 'blue' ? 'bg-gradient-to-br from-blue-500/20 to-blue-600/20 border-blue-500/30' :
+            color === 'green' ? 'bg-gradient-to-br from-green-500/20 to-green-600/20 border-green-500/30' :
+            color === 'emerald' ? 'bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 border-emerald-500/30' :
+            color === 'purple' ? 'bg-gradient-to-br from-purple-500/20 to-purple-600/20 border-purple-500/30' :
+            color === 'orange' ? 'bg-gradient-to-br from-orange-500/20 to-orange-600/20 border-orange-500/30' :
+            'bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 border-cyan-500/30'
+          }`}>
+            <Icon size={24} className={`${
+              color === 'cyan' ? 'text-cyan-400' :
+              color === 'blue' ? 'text-blue-400' :
+              color === 'green' ? 'text-green-400' :
+              color === 'emerald' ? 'text-emerald-400' :
+              color === 'purple' ? 'text-purple-400' :
+              color === 'orange' ? 'text-orange-400' :
+              'text-cyan-400'
+            }`} />
           </div>
           {glow && (
             <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
@@ -442,7 +466,7 @@ const RouteCalculator: React.FC = () => {
                 <FuturisticCard
                   title="Optimización IA"
                   value={`${routeData.aiOptimization}%`}
-                  icon={CpuIcon2}
+                  icon={CpuIcon}
                   color="purple"
                   subtitle="Algoritmo: {routeData.algorithmUsed}"
                 />

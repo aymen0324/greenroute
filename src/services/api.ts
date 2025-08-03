@@ -114,9 +114,10 @@ class ApiService {
         return response;
       },
       (error) => {
-        if (error.response?.status === 401) {
-          this.logout();
-        }
+        // Commented out for public site - no authentication required
+        // if (error.response?.status === 401) {
+        //   this.logout();
+        // }
         return Promise.reject(error);
       }
     );
